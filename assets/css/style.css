@@ -13,6 +13,12 @@ textarea{
   padding: 10px;
 }
 
+.col-sm-3, .col-lg-9 {
+  border: #000000 solid 4px;
+  color: #000000;
+  margin: 2px;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -33,7 +39,8 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  flex-wrap: nowrap;
 }
 
 .hour {

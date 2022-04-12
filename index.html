@@ -27,11 +27,19 @@
       <h1 class="display-3 text-center">Work Day Scheduler</h1>
       <p class="lead text-center">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead">Today:
-        <span class="output"></span>
+        <span onload="getDate()"></span>
       </p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <!-- Timeblocks -->
+      <div class="row">
+        <div id="time" class="col-sm-3">
+          Time
+        </div>
+        <div id="description" class="col-lg-9">
+          Description
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
