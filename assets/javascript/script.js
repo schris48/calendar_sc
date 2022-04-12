@@ -1,26 +1,46 @@
-var events = {}
-var today = document.querySelector("#currentDay");
+// var events = {}
+// var today = document.querySelector("#currentDay");
+$("#currentDay").text(moment().format('LL'))
 
-let date = new Date()
-let day = date.getDate();
-let month = date.getMonth()+1;
-let year = date.getFullYear();
+$(".saveBtn").on("click", function() {
+  var timeKey = $(this).parent().attr("id");
+  var textAreaValue = $(this).siblings("textarea").val();
+  localStorage.setItem(timeKey, textAreaValue);
+})
 
-let fullDate = `${day}-${month}-${year}`;
-console.log(fullDate);
+// store text area value in local storage
+$("#time9 textarea").val(localStorage.getItem("time9"))
+$("#time10 textarea").val(localStorage.getItem("time10"))
+$("#time11 textarea").val(localStorage.getItem("time11"))
+$("#time12 textarea").val(localStorage.getItem("time12"))
+$("#time13 textarea").val(localStorage.getItem("time13"))
+$("#time14 textarea").val(localStorage.getItem("time14"))
+$("#time15 textarea").val(localStorage.getItem("time15"))
+$("#time16 textarea").val(localStorage.getItem("time16"))
+$("#time17 textarea").val(localStorage.getItem("time17"))
 
-$(".row").on("click", "div", function() {
-  var text = $(this)
-  .text()
-  .trim();
+// colour timeblock based on time
+function updateTimeblock() {
+  var hour = moment().hours();
+  console.log(hour);
+  $(".time-block").each(function(){
+    var currentBlock = parseInt($(this).attr("id").split("time")[1]);
+    console.log(currentBlock);
 
-  var textInput = $("<textarea>")
-  .addClass("formal-control")
-  .val(text);
-  $(this).replaceWith(textInput);
-  console.log(textInput);
-});  
+    if (currentBlock < hour) {
+      $(this).addClass("past")
+    } else if(currentBlock === hour) {
+      $(this).addClass("present")
+    } else {
+      $(this).addClass("future")
+    }
+    
+  })
+}
+updateTimeblock();
 
-// var createCurrentDayEl = function() {
-//   var 
-// }
+// Code 4 Later //
+
+// var saveEvents = function() {
+//   localStorage.setItem("events", JSON.stringify(events));
+// };
