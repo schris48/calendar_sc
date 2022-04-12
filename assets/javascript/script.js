@@ -1,7 +1,7 @@
-// var events = {}
-// var today = document.querySelector("#currentDay");
+// get and format current day
 $("#currentDay").text(moment().format('LL'))
 
+// save button handler
 $(".saveBtn").on("click", function() {
   var timeKey = $(this).parent().attr("id");
   var textAreaValue = $(this).siblings("textarea").val();
@@ -38,9 +38,3 @@ function updateTimeblock() {
   })
 }
 updateTimeblock();
-
-// Code 4 Later //
-
-// var saveEvents = function() {
-//   localStorage.setItem("events", JSON.stringify(events));
-// };
